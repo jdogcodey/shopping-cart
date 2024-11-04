@@ -24,7 +24,21 @@ export default function Root() {
     }
 
     function removeFromCart(itemToRemove) {
-        setShoppingCart((prevCart) => prevCart.filter((cartItem) => cartItem !== itemToRemove))
+        setShoppingCart((prevCart) => {
+            const existingItemIndex = prevCart.findIndex(cartItem =>
+            cartItem.id === itemToRemove.id && cartItem.title === itemToRemove.title && cartItem.price === itemToRemove.price
+            );
+
+            if (prevCart[existingItemIndex].count > 1) {
+                const updatedCart = [...prevCart];
+                updatedCart[existingItemIndex].count -= 1;
+                return updatedCart;
+            }
+
+            const newCart = [...prevCart];
+            const removedCart = newCart.splice(existingItemIndex, 1);
+            return removedCart;
+    })
     }
 
     return (
