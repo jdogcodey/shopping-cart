@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom'
 export default function Root() {
     const [shoppingCart, setShoppingCart] = useState([]);
 
-    function addToCart(item) {
+    function addToCart(item, newCount) {
         setShoppingCart((prevCart) => {
             const existingItemIndex = prevCart.findIndex(cartItem => 
                 cartItem.id === item.id && cartItem.title === item.title && cartItem.price === item.price
@@ -15,7 +15,8 @@ export default function Root() {
 
             if (existingItemIndex !== -1) {
                 const updatedCart = [...prevCart];
-                updatedCart[existingItemIndex].count += 1;
+                updatedCart[existingItemIndex].count = newCount;
+                console.log(updatedCart)
                 return updatedCart;
             }
 

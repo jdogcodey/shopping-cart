@@ -1,10 +1,13 @@
-export default function Itemcard({item}) {
+import { useOutletContext } from "react-router-dom";
+
+
+export default function Itemcard({itemObject}) {
 
     const {shoppingCart, addToCart, removeFromCart} = useOutletContext();
 
-    function itemInCart(item) {
+    function itemInCart(product) {
         for (let i = 0; i < shoppingCart.length; i++) {
-            if (shoppingCart[i].title === item.title && shoppingCart[i].id === item.id && shoppingCart[i].price === item.price) {
+            if (shoppingCart[i].title === product.title && shoppingCart[i].id === product.id && shoppingCart[i].price === product.price) {
                 return true;
             }
             i++;
@@ -12,17 +15,28 @@ export default function Itemcard({item}) {
         return false;
     }
 
+    function noInCart(product) {
+        for (let i = 0; i < shoppingCart.length; i++) {
+            if (shoppingCart[i].title === product.title && shoppingCart[i].id === product.id && shoppingCart[i].price === product.price) {
+                return shoppingCart[i].count;
+        }
+    }
+}
+
     return <div>
-        <h3>{item.title}</h3>
-        <img src={item.image} />
-        <p>{item.description}</p>
-        <p>£{item.price}</p>
-        <p>{item.rating.rate}/5</p>
-        {noInBasket > 0 ?
+        <h3>{itemObject.title}</h3>
+        <img src={itemObject.image} />
+        <p>{itemObject.description}</p>
+        <p>£{itemObject.price}</p>
+        <p>{itemObject.rating.rate}/5</p>
+        {itemInCart(itemObject) ?
         <div>
-            <button onClick={removeFromCart()}>-</button>
-            <input type="number" onChange={}>{noInBasket}</input>
+            <button onClick={() => removeFromCart(itemObject)}>-</button>
+            <input type="number" value={noInCart(itemObject)}></input>
+            <button onClick={() => {
+                const newCount = noInCart(itemObject) + 1;
+                addToCart(itemObject, newCount)}}>+</button>
         </div> :
-        <button>Add to Basket</button>}
+        <button onClick={() => addToCart(itemObject, 1)}>Add to Basket</button>}
     </div>
 }
