@@ -7,7 +7,7 @@ export default function Shopping() {
 
    return <main>
     {data.map((item) => (
-        <Itemcard key={item.id} title={item.title} price={item.price} description={item.description} image={item.image} rating={item.rating.rate}/>
+        <Itemcard key={item.id} title={item.title} price={item.price} description={item.description} image={item.image} rating={item.rating.rate} noInBasket={item.noInBasket}/>
     ))}
     </main>
 }
