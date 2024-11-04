@@ -1,5 +1,5 @@
 import Itemcard from "./Itemcard";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 
 export default function Shopping() {
 

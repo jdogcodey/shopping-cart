@@ -8,7 +8,19 @@ export default function Root() {
     const [shoppingCart, setShoppingCart] = useState([]);
 
     function addToCart(item) {
-        setShoppingCart((prevCart) => [...prevCart, item])
+        setShoppingCart((prevCart) => {
+            const existingItemIndex = prevCart.findIndex(cartItem => 
+                cartItem.id === item.id && cartItem.title === item.title && cartItem.price === item.price
+            );
+
+            if (existingItemIndex !== -1) {
+                const updatedCart = [...prevCart];
+                updatedCart[existingItemIndex].count += 1;
+                return updatedCart;
+            }
+
+            return [...prevCart, { ...item, count: 1}];
+        })
     }
 
     function removeFromCart(itemToRemove) {
