@@ -1,4 +1,4 @@
-export default function Itemcard({ title, price, description, image, rating }) {
+export default function Itemcard({ title, price, description, image, rating}) {
     return <div>
         <h3>{title}</h3>
         <img src={image} />
