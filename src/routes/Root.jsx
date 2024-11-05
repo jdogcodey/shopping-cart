@@ -35,8 +35,7 @@ export default function Root() {
             }
 
             const newCart = [...shoppingCart];
-            const removedCart = newCart.splice(existingItemIndex, 1);
-            console.log(removedCart);
+            const removedCart = newCart.filter((item, index) => index !== existingItemIndex)
             setShoppingCart(removedCart);
     }
 
