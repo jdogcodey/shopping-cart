@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 
 export default function Itemcard({itemObject}) {
 
-    const {shoppingCart, addToCart, removeFromCart} = useOutletContext();
+    const {shoppingCart, addToCart, removeFromCart, changeCountInCart} = useOutletContext();
 
     function itemInCart(product) {
         for (let i = 0; i < shoppingCart.length; i++) {
@@ -31,7 +31,7 @@ export default function Itemcard({itemObject}) {
         {itemInCart(itemObject) ?
         <div>
             <button onClick={() => removeFromCart(itemObject)}>-</button>
-            <input type="number" value={noInCart(itemObject)}></input>
+            <input type="number" value={noInCart(itemObject)} onChange={(event) => changeCountInCart(event, itemObject)}></input>
             <button onClick={() => {
                 addToCart(itemObject)}}>+</button>
         </div> :

@@ -8,11 +8,9 @@ export default function Root() {
     const [shoppingCart, setShoppingCart] = useState([]);
 
     function addToCart(item) {
-        const existingItemIndex = shoppingCart.findIndex(cartItem => cartItem.id === item.id && cartItem.title === item.title && cartItem.price === item.price);
+        const existingItemIndex = findItemInCart(item);
 
-        console.log(existingItemIndex)
         if (existingItemIndex !== -1) {
-            console.log('if statement')
             const updatedCart = [...shoppingCart];
             updatedCart[existingItemIndex].count += 1;
             setShoppingCart(updatedCart);
@@ -23,9 +21,7 @@ export default function Root() {
     }
 
     function removeFromCart(itemToRemove) {
-            const existingItemIndex = shoppingCart.findIndex(cartItem =>
-            cartItem.id === itemToRemove.id && cartItem.title === itemToRemove.title && cartItem.price === itemToRemove.price
-            );
+            const existingItemIndex = findItemInCart(itemToRemove);
 
             if (shoppingCart[existingItemIndex].count > 1) {
                 const updatedCart = [...shoppingCart];
@@ -39,11 +35,26 @@ export default function Root() {
             setShoppingCart(removedCart);
     }
 
+    function findItemInCart(item) {
+        const index = shoppingCart.findIndex(cartItem => cartItem.id === item.id && cartItem.title === item.title && cartItem.price === item.price);
+        return index;
+    }
+
+    function changeCountInCart(event, item) {
+        const newCount = parseInt(event.target.value, 10);
+        if (isNaN(newCount) || newCount < 1) return;
+
+        const existingItemIndex = findItemInCart(item);
+        const newCart = [...shoppingCart];
+        newCart[existingItemIndex].count = newCount;
+        setShoppingCart(newCart);
+    }
+
     return (
     <>
         <Header />
         <Sidebar />
-        <Outlet context={{shoppingCart, addToCart, removeFromCart}} />
+        <Outlet context={{shoppingCart, addToCart, removeFromCart, changeCountInCart}} />
         <Footer />
     </>
     )}
