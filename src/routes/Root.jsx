@@ -7,39 +7,37 @@ import { Outlet } from 'react-router-dom'
 export default function Root() {
     const [shoppingCart, setShoppingCart] = useState([]);
 
-    function addToCart(item, newCount) {
-        setShoppingCart((prevCart) => {
-            const existingItemIndex = prevCart.findIndex(cartItem => 
-                cartItem.id === item.id && cartItem.title === item.title && cartItem.price === item.price
-            );
+    function addToCart(item) {
+        const existingItemIndex = shoppingCart.findIndex(cartItem => cartItem.id === item.id && cartItem.title === item.title && cartItem.price === item.price);
 
-            if (existingItemIndex !== -1) {
-                const updatedCart = [...prevCart];
-                updatedCart[existingItemIndex].count = newCount;
-                console.log(updatedCart)
-                return updatedCart;
-            }
+        console.log(existingItemIndex)
+        if (existingItemIndex !== -1) {
+            console.log('if statement')
+            const updatedCart = [...shoppingCart];
+            updatedCart[existingItemIndex].count += 1;
+            setShoppingCart(updatedCart);
+            return;
+        }
 
-            return [...prevCart, { ...item, count: 1}];
-        })
+        setShoppingCart([...shoppingCart, {...item, count: 1}]);
     }
 
     function removeFromCart(itemToRemove) {
-        setShoppingCart((prevCart) => {
-            const existingItemIndex = prevCart.findIndex(cartItem =>
+            const existingItemIndex = shoppingCart.findIndex(cartItem =>
             cartItem.id === itemToRemove.id && cartItem.title === itemToRemove.title && cartItem.price === itemToRemove.price
             );
 
-            if (prevCart[existingItemIndex].count > 1) {
-                const updatedCart = [...prevCart];
+            if (shoppingCart[existingItemIndex].count > 1) {
+                const updatedCart = [...shoppingCart];
                 updatedCart[existingItemIndex].count -= 1;
-                return updatedCart;
+                setShoppingCart(updatedCart);
+                return;
             }
 
-            const newCart = [...prevCart];
+            const newCart = [...shoppingCart];
             const removedCart = newCart.splice(existingItemIndex, 1);
-            return removedCart;
-    })
+            console.log(removedCart);
+            setShoppingCart(removedCart);
     }
 
     return (

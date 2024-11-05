@@ -10,7 +10,6 @@ export default function Itemcard({itemObject}) {
             if (shoppingCart[i].title === product.title && shoppingCart[i].id === product.id && shoppingCart[i].price === product.price) {
                 return true;
             }
-            i++;
         }
         return false;
     }
@@ -34,9 +33,8 @@ export default function Itemcard({itemObject}) {
             <button onClick={() => removeFromCart(itemObject)}>-</button>
             <input type="number" value={noInCart(itemObject)}></input>
             <button onClick={() => {
-                const newCount = noInCart(itemObject) + 1;
-                addToCart(itemObject, newCount)}}>+</button>
+                addToCart(itemObject)}}>+</button>
         </div> :
-        <button onClick={() => addToCart(itemObject, 1)}>Add to Basket</button>}
+        <button onClick={() => {addToCart(itemObject)}}>Add to Basket</button>}
     </div>
 }
