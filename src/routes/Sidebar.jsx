@@ -6,7 +6,7 @@ export default function Sidebar({ shoppingCart, addToCart, removeFromCart, chang
         <div key={item.id}>
             <p>{item.title}</p>
             <img src={item.image}></img>
-            <button onClick={removeFromCart}>-</button>
+            <button onClick={() => {removeFromCart(item)}}>-</button>
             <input value={noInCart(item)} onChange={(event) => changeCountInCart(event, item)}></input>
             <button onClick={() => {addToCart(item)}}>+</button>
         </div>)}
