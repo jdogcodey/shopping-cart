@@ -2,6 +2,7 @@ export default function Sidebar({ shoppingCart, addToCart, removeFromCart, chang
 
 
     return <div>
+        <h2>Basket:</h2>
         {shoppingCart.map((item) => 
         <div key={item.id}>
             <p>{item.title}</p>
