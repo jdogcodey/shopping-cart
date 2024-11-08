@@ -50,11 +50,28 @@ export default function Root() {
         setShoppingCart(newCart);
     }
 
+        function itemInCart(product) {
+        for (let i = 0; i < shoppingCart.length; i++) {
+            if (shoppingCart[i].title === product.title && shoppingCart[i].id === product.id && shoppingCart[i].price === product.price) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function noInCart(product) {
+        for (let i = 0; i < shoppingCart.length; i++) {
+            if (shoppingCart[i].title === product.title && shoppingCart[i].id === product.id && shoppingCart[i].price === product.price) {
+                return shoppingCart[i].count;
+        }
+    }
+}
+
     return (
     <>
         <Header />
-        <Sidebar />
-        <Outlet context={{shoppingCart, addToCart, removeFromCart, changeCountInCart}} />
+        <Outlet context={{shoppingCart, addToCart, removeFromCart, changeCountInCart, itemInCart, noInCart}} />
+        {shoppingCart.length > 0 && <Sidebar shoppingCart={shoppingCart} addToCart={addToCart} removeFromCart={removeFromCart} changeCountInCart={changeCountInCart} noInCart={noInCart}/>}
         <Footer />
     </>
     )}
