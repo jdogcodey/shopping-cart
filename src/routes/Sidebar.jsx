@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 export default function Sidebar({ shoppingCart, addToCart, removeFromCart, changeCountInCart, noInCart }) {
 
 
@@ -12,4 +14,12 @@ export default function Sidebar({ shoppingCart, addToCart, removeFromCart, chang
             <button onClick={() => {addToCart(item)}}>+</button>
         </div>)}
     </div>
+}
+
+Sidebar.propTypes = {
+    shoppingCart: PropTypes.array,
+    addToCart: PropTypes.func,
+    removeFromCart: PropTypes.func,
+    changeCountInCart: PropTypes.func,
+    noInCart: PropTypes.func,
 }
