@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Header from "./Header"
 import Footer from "./Footer"
-import Sidebar from "./Sidebar"
 import { Outlet } from 'react-router-dom'
 
 export default function Root() {
@@ -71,7 +70,6 @@ export default function Root() {
     <>
         <Header />
         <Outlet context={{shoppingCart, addToCart, removeFromCart, changeCountInCart, itemInCart, noInCart}} />
-        {shoppingCart.length > 0 && <Sidebar shoppingCart={shoppingCart} addToCart={addToCart} removeFromCart={removeFromCart} changeCountInCart={changeCountInCart} noInCart={noInCart}/>}
         <Footer />
     </>
     )}

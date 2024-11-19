@@ -6,6 +6,7 @@ import Root from './routes/Root.jsx'
 import Homepage from './routes/Homepage.jsx';
 import Shopping, { loader as shoppingLoader } from './routes/Shopping.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
+import Checkout from './routes/Checkout.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,8 @@ const router = createBrowserRouter(
       path="/shopping"
       element={<Shopping />} 
       loader={shoppingLoader}/>
+      <Route path='/checkout'
+      element={<Checkout />} />
     </Route>
   )
 )

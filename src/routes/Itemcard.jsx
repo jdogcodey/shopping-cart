@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router-dom";
+import PropTypes from "prop-types";
 
 
 export default function Itemcard({itemObject}) {
@@ -37,4 +38,8 @@ export default function Itemcard({itemObject}) {
         </div> :
         <button onClick={() => {addToCart(itemObject)}}>Add to Basket</button>}
     </div>
+}
+
+Itemcard.propTypes = {
+    itemObject: PropTypes.object.isRequired,
 }

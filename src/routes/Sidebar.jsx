@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 
 export default function Sidebar({ shoppingCart, addToCart, removeFromCart, changeCountInCart, noInCart }) {
 
@@ -13,6 +14,7 @@ export default function Sidebar({ shoppingCart, addToCart, removeFromCart, chang
             <input value={noInCart(item)} onChange={(event) => changeCountInCart(event, item)}></input>
             <button onClick={() => {addToCart(item)}}>+</button>
         </div>)}
+        <Link to='/Checkout'>Go To Checkout</Link>
     </div>
 }
 

@@ -1,7 +1,10 @@
 import Itemcard from "./Itemcard";
 import { useLoaderData, useOutletContext } from "react-router-dom";
+import Sidebar from './Sidebar.jsx'
 
 export default function Shopping() {
+
+    const {shoppingCart, addToCart, removeFromCart, changeCountInCart, itemInCart, noInCart,} = useOutletContext();
 
     const data = useLoaderData();
 
@@ -9,6 +12,7 @@ export default function Shopping() {
     {data.map((item) => (
         <Itemcard key={item.id} itemObject={item}/>
     ))}
+    {shoppingCart.length > 0 && <Sidebar shoppingCart={shoppingCart} addToCart={addToCart} removeFromCart={removeFromCart} changeCountInCart={changeCountInCart} noInCart={noInCart}/>}
     </main>
 }
 
