@@ -67,9 +67,9 @@ export default function Root() {
 }
 
     return (
-    <>
+    <div className="flex flex-col min-h-screen place-content-between;">
         <Header />
         <Outlet context={{shoppingCart, addToCart, removeFromCart, changeCountInCart, itemInCart, noInCart}} />
         <Footer />
-    </>
+    </div>
     )}
