@@ -13,5 +13,6 @@ export default function Checkout() {
             <input value={noInCart(item)} onChange={(event) => changeCountInCart(event, item)}></input>
             <button onClick={() => {addToCart(item)}}>+</button>
         </div>)}
+        <button>Checkout</button>
         </div>
 }
