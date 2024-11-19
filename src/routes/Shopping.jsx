@@ -4,7 +4,7 @@ import Sidebar from './Sidebar.jsx'
 
 export default function Shopping() {
 
-    const {shoppingCart, addToCart, removeFromCart, changeCountInCart, itemInCart, noInCart,} = useOutletContext();
+    const {shoppingCart, addToCart, removeFromCart, changeCountInCart, noInCart} = useOutletContext();
 
     const data = useLoaderData();
 
