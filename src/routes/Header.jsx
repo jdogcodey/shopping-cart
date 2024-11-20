@@ -3,7 +3,7 @@ import githubLogo from '../assets/github-mark.svg';
 
 export default function Header() {
     return (
-        <header className="flex flex-row justify-between p-3 h-10 mb-5">
+        <header className="flex flex-row justify-between p-3 h-16 mb-5 bg-[#4a90a4] text-[#f5f9f7]">
             <h1 className="text-3xl items-center">Shop Capitalism!</h1>
             <nav className="flex flex-row items-center h-10">
                 <NavLink to={'/'} className={({isActive, isPending}) => `mr-2 ${isActive ? 'active' : isPending ? 'pending' : ''}`}>Home</NavLink>
