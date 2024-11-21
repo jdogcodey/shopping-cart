@@ -5,3 +5,7 @@
 body {
   @apply bg-[#dcefe7] min-h-screen;
 }
+
+.active {
+  @apply border-[#7cb6c6];
+}
