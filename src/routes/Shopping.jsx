@@ -8,7 +8,7 @@ export default function Shopping() {
 
     const data = useLoaderData();
 
-   return <main>
+   return <main className="grid grid-cols-3 m-6 gap-2">
     {data.map((item) => (
         <Itemcard key={item.id} itemObject={item}/>
     ))}

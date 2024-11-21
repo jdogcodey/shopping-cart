@@ -23,9 +23,9 @@ export default function Itemcard({itemObject}) {
     }
 }
 
-    return <div>
+    return <div className=''>
         <h3>{itemObject.title}</h3>
-        <img src={itemObject.image} />
+        <img className='max-h-24' src={itemObject.image} />
         <p>{itemObject.description}</p>
         <p>£{itemObject.price}</p>
         <p>{itemObject.rating.rate}/5</p>
