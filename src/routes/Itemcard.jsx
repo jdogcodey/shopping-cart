@@ -23,8 +23,8 @@ export default function Itemcard({itemObject}) {
     }
 }
 
-    return <div className=''>
-        <h3>{itemObject.title}</h3>
+    return <div className='border-solid border-[#4a90a4] border-2 rounded-md p-3'>
+        <h3 className="">{itemObject.title}</h3>
         <img className='max-h-24' src={itemObject.image} />
         <p>{itemObject.description}</p>
         <p>£{itemObject.price}</p>
