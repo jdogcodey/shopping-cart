@@ -1,13 +1,13 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-export default function Sidebar({ shoppingCart, addToCart, removeFromCart, changeCountInCart, noInCart }) {
+export default function Sidebar({ shoppingCart, addToCart, removeFromCart, changeCountInCart, noInCart, updateSideState }) {
 
 
     return <div className='z-10 flex flex-col absolute right-0 top-16 w-96 bg-[#4a90a4] min-h-screen pb-2'>
         <div className="flex flex-row place-content-between pl-2 pr-2 text-white text-xl items-center">
             <h2 className=''>Basket:</h2>
-            <button className="border-solid border-[#f5f9f7] border-2 rounded-3xl pl-2 pr-2 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]">Hide</button>
+            <button className="border-solid border-[#f5f9f7] border-2 rounded-3xl pl-2 pr-2 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]" onClick={() => {updateSideState(false)}}>Hide</button>
         </div>
         {shoppingCart.map((item) => 
         <div className='grid grid-rows-2 grid-cols-basketlayout bg-white h-14 m-1 rounded-md p-1' key={item.id}>
@@ -29,4 +29,5 @@ Sidebar.propTypes = {
     removeFromCart: PropTypes.func,
     changeCountInCart: PropTypes.func,
     noInCart: PropTypes.func,
+    updateSideState: PropTypes.func,
 }
