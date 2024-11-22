@@ -13,7 +13,7 @@ export default function Sidebar({ shoppingCart, addToCart, removeFromCart, chang
         <div className='grid grid-rows-2 grid-cols-basketlayout bg-white h-14 m-1 rounded-md p-1' key={item.id}>
             <p className="col-start-1 col-end-2 row-start-1 row-end-2 overflow-hidden">{item.title}</p>
             <img className='h-12 col-start-2 col-end-3 row-start-1 row-end-3 ' src={item.image}></img>
-            <div className="col-start-1 col-end-2 row-start-2 row-end-3 flex justify-self-center self-center">
+            <div className="col-start-1 col-end-2 row-start-2 row-end-3 flex self-center">
                 <button className="border-solid border-[#4a90a4] border-2 rounded-full pl-2 pr-2 mr-2" onClick={() => {removeFromCart(item)}}>-</button>
                 <input className='w-20 bg-[#dcefe7]' value={noInCart(item)} onChange={(event) => changeCountInCart(event, item)}></input>
                 <button className="border-solid border-[#4a90a4] border-2 rounded-full pl-2 pr-2 ml-2" onClick={() => {addToCart(item)}}>+</button>
