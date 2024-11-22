@@ -23,9 +23,11 @@ export default function Itemcard({itemObject}) {
     }
 }
 
-    return <div className='border-solid border-[#4a90a4] border-2 rounded-md p-3'>
-        <h3 className="">{itemObject.title}</h3>
-        <img className='max-h-24' src={itemObject.image} />
+    return <div className='border-solid border-[#4a90a4] border-2 rounded-md bg-white'>
+        <h3 className="bg-[#4a90a4] p-3">{itemObject.title}</h3>
+        <div className="h-24 w-24 flex align-center justify-center p-1">
+            <img className='max-h-full  max-w-full object-contain' src={itemObject.image} />
+        </div>
         <p>{itemObject.description}</p>
         <p>£{itemObject.price}</p>
         <p>{itemObject.rating.rate}/5</p>
