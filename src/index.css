@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
-  @apply bg-[#dcefe7] min-h-screen;
+  @apply bg-[#dcefe7] min-h-screen h-[100%];
 }
 
 .active {

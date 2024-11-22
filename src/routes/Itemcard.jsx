@@ -39,7 +39,7 @@ export default function Itemcard({itemObject}) {
                     <button className="border-solid border-[#4a90a4] border-2 rounded-full pl-2 pr-2 ml-2" onClick={() => {
                         addToCart(itemObject)}}>+</button>
                 </div> :
-                <button onClick={() => {addToCart(itemObject)}}>Add to Basket</button>}
+                <button className='border-solid border-[#4a90a4] border-2 rounded-xl pl-1 pr-1 hover:bg-[#dcefe7]' onClick={() => {addToCart(itemObject)}}>Add to Basket</button>}
         </div>
     </div>
 }
