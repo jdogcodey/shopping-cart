@@ -10,8 +10,8 @@ export default function Checkout() {
         <div className='flex flex-col bg-[#4a90a4] p-2 md:p-4 rounded-lg ml-2 mr-2'>
             <h2 className="text-white text-lg md:text-3xl">Basket:</h2>
             {shoppingCart.map((item) => 
-            <div className='flex flex-row bg-white m-2 rounded-md p-2 justify-between' key={item.id}>
-                <div className="flex flex-row items-center mr-4">
+            <div className='flex flex-col md:flex-row bg-white m-2rounded-md p-2 justify-between mb-2' key={item.id}>
+                <div className="flex flex-row items-center mr-4 mb-2">
                     <img className="max-h-24 mr-2" src={item.image}></img>
                     <p className='text-sm md:text-lg'>{item.title}</p>
                 </div>
