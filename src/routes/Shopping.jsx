@@ -12,7 +12,7 @@ export default function Shopping() {
 
     const [sideState, updateSideState] = useState(true)
 
-   return <main className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-2 md:m-6 gap-2 h-full w-full">
+   return <main className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-2 md:m-6 gap-2 h-full w-full pt-16">
     {data.map((item) => (
         <Itemcard key={item.id} itemObject={item}/>
     ))}
