@@ -31,7 +31,7 @@ export default function Itemcard({itemObject}) {
         <p className="row-start-2 col-start-1 col-end-4 row-end-3 p-2 overflow-scroll">{itemObject.description}</p>
         <p className="row-start-3 row-end-4 col-start-1 col-end-2 p-2 text-center">£{itemObject.price}</p>
         <p className='row-start-3 row-end-4 col-start-2 col-end-3 p-2 text-center'>{itemObject.rating.rate}/5</p>
-        <div className='row-start-3 row-end-4 col-start-3 col-end-4 p-2 text-center'>
+        <div className='row-start-3 row-end-4 col-start-3 col-end-4 lg:p-2 text-center'>
             {itemInCart(itemObject) ?
                 <div className="flex flex-row">
                     <button className="border-solid border-[#4a90a4] border-2 rounded-full pl-2 pr-2 mr-2 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]" onClick={() => removeFromCart(itemObject)}>-</button>
