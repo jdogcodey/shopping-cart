@@ -6,7 +6,7 @@ export default function Checkout() {
 
     return <>
     <Link to='/shopping' className="left-1 md:left-5 top-16 md:top-20 fixed text-white bg-[#4a90a4] p-2 text-md md:text-2xl rounded-3xl border-solid border-white border-2 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]">Back</Link>
-    <main className="flex justify-center items-center w-full pt-20">
+    <main className="flex justify-center items-center w-full pt-28 mb-5">
         <div className='flex flex-col bg-[#4a90a4] p-2 md:p-4 rounded-lg ml-2 mr-2'>
             <h2 className="text-white text-lg md:text-3xl">Basket:</h2>
             {shoppingCart.map((item) => 
