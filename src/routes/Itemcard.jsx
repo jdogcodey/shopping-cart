@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
 
 
-export default function Itemcard({itemObject}) {
+export default function Itemcard({itemObject, updateSideState}) {
 
     const {shoppingCart, addToCart, removeFromCart, changeCountInCart} = useOutletContext();
 
@@ -39,11 +39,12 @@ export default function Itemcard({itemObject}) {
                     <button className="border-solid border-[#4a90a4] border-2 rounded-full pl-2 pr-2 ml-2 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]" onClick={() => {
                         addToCart(itemObject)}}>+</button>
                 </div> :
-                <button className='border-solid border-[#4a90a4] border-2 rounded-xl pl-1 pr-1 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]' onClick={() => {addToCart(itemObject); window.scrollTo({top: 0, behavior: 'smooth'})}}>Add to Basket</button>}
+                <button className='border-solid border-[#4a90a4] border-2 rounded-xl pl-1 pr-1 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]' onClick={() => {addToCart(itemObject); window.scrollTo({top: 0, behavior: 'smooth'}); updateSideState(true)}}>Add to Basket</button>}
         </div>
     </div>
 }
 
 Itemcard.propTypes = {
     itemObject: PropTypes.object.isRequired,
+    updateSideStart: PropTypes.func,
 }
