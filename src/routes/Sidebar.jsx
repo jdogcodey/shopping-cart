@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export default function Sidebar({ shoppingCart, addToCart, removeFromCart, changeCountInCart, noInCart, updateSideState }) {
 
 
-    return <div className='z-10 flex flex-col absolute right-0 top-16 w-96 bg-[#4a90a4] min-h-screen pb-2'>
+    return <div className='z-10 flex flex-col absolute right-0 top-16 w-full md:w-96 bg-[#4a90a4] h-full pb-2 transform transition-transform duration-300 ease-in-outS'>
         <div className="flex flex-row place-content-between pl-2 pr-2 text-white text-xl items-center">
             <h2 className=''>Basket:</h2>
             <button className="border-solid border-[#f5f9f7] border-2 rounded-3xl pl-2 pr-2 hover:border-[#7cb6c6] hover:bg-[#dcefe7] hover:text-[#7cb6c6]" onClick={() => {updateSideState(false)}}>Hide</button>

@@ -16,7 +16,7 @@ const router = createBrowserRouter(
     errorElement={<ErrorPage />}
     >
       <Route index element={<Homepage />} />
-      <Route 
+      <Route
       path="/shopping"
       element={<Shopping />} 
       loader={shoppingLoader}/>
